@@ -1,0 +1,20 @@
+---
+- name: Add the user for Alexander
+  user:
+    name: "alexander"
+    shell: "/bin/bash"
+    groups: "adm,sudo"
+    append: true
+    state: present
+
+- name: Set authorized key taken from string
+  authorized_key:
+    user: alexander
+    state: present
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFIyRgglxh91bbYUHCo7ldKqtkCds18Q7nWRD1NTyfb9 sb@sb-XPS-2004"
+
+- name: remote tempalte user
+  user:
+    name: template
+    state: absent
+    force: true

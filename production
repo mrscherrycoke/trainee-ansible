@@ -1,0 +1,2 @@
+[webserver]
+web01 ansible_host="172.31.2.88"
